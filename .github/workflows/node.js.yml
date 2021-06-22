@@ -31,4 +31,5 @@ jobs:
     - run: cd backend/express-api && npm ci
     - run: cd backend/express-api && npm test
       env: 
+        MONGO_URI: mongodb://localhost/MasterDash
         CI: true
