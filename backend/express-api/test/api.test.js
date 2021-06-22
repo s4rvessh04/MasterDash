@@ -2,6 +2,7 @@ const request = require("supertest");
 const assert = require("assert");
 
 const app = require("../src/app");
+const { nextTick } = require("process");
 
 describe("GET /api/v1", () => {
 	it("responds with a json message", (done) => {
@@ -35,14 +36,7 @@ describe("GET /api/v1/weather", () => {
 			.get("/api/v1/weather")
 			.set("Accept", "application/json")
 			.expect("Content-Type", /json/)
-			.expect(200)
-			.then((res) => {
-				assert.strictEqual(typeof res.body, "object");
-				done();
-			})
-			.catch((err) => {
-				console.log(err);
-			});
+			.expect(200, done);
 	});
 });
 
@@ -73,14 +67,7 @@ describe("GET /api/v1/github/repohouse", () => {
 			.get("/api/v1/github/repohouse")
 			.set("Accept", "application/json")
 			.expect("Content-Type", /json/)
-			.expect(200)
-			.then((res) => {
-				assert.strictEqual(typeof res.body, "object");
-				done();
-			})
-			.catch((err) => {
-				console.log(err);
-			});
+			.expect(200, done);
 	});
 });
 
@@ -90,14 +77,7 @@ describe("GET /api/v1/github/user", () => {
 			.get("/api/v1/github/user")
 			.set("Accept", "application/json")
 			.expect("Content-Type", /json/)
-			.expect(200)
-			.then((res) => {
-				assert.strictEqual(typeof res.body, "object");
-				done();
-			})
-			.catch((err) => {
-				console.log(err);
-			});
+			.expect(200, done);
 	});
 });
 
@@ -111,9 +91,6 @@ describe("GET /api/v1/covid", () => {
 			.then((res) => {
 				assert.strictEqual(typeof res.body, "object");
 				done();
-			})
-			.catch((err) => {
-				console.log(err);
 			});
 	});
 });
