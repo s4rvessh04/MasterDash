@@ -87,11 +87,7 @@ describe("GET /api/v1/covid", () => {
 			.get("/api/v1/covid")
 			.set("Accept", "application/json")
 			.expect("Content-Type", /json/)
-			.expect(200)
-			.then((res) => {
-				assert.strictEqual(typeof res.body, "object");
-				done();
-			});
+			.expect(200, done)
 	});
 });
 
