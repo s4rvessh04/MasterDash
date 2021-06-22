@@ -1,0 +1,27 @@
+{
+	"version": "2.0.0",
+	"tasks": [
+		{
+			"label":"start-app",
+			"dependsOn":[
+				"start-frontend",
+				"start-backend"
+			],
+			"group": {
+				"kind": "build",
+				"isDefault": true
+			},
+			"problemMatcher": []
+		},
+		{
+			"type": "shell",
+			"command": "cd frontend && npm start",
+			"label": "start-frontend",
+		},
+		{
+			"type": "shell",
+			"command": " cd backend\\express-api && npm run dev",
+			"label": "start-backend",
+		}
+	]
+}

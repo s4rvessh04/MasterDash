@@ -1,0 +1,21 @@
+{
+	"python.pythonPath": "backend\\env\\Scripts\\python.exe",
+	"python.languageServer": "Pylance",
+	"emmet.includeLanguages": {
+		"javascript": "javascriptreact"
+	},
+	"emmet.triggerExpansionOnTab": true,
+	"editor.defaultFormatter": null,
+	"[javascript]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"python.linting.pylintEnabled": true,
+	"python.linting.enabled": true,
+	"[json]": {
+		"editor.defaultFormatter": "esbenp.prettier-vscode"
+	},
+	"python.linting.flake8Enabled": false,
+	"python.formatting.autopep8Args": [
+		"--max-line-length=120"
+	],
+}
