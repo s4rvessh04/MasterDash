@@ -36,7 +36,7 @@ describe("GET /api/v1/weather", () => {
 			.get("/api/v1/weather")
 			.set("Accept", "application/json")
 			.expect("Content-Type", /json/)
-			.expect(200, done);
+			.expect(200, done)
 	});
 });
 

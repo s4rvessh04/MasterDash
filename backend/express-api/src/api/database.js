@@ -1,9 +1,13 @@
 const mongoose = require("mongoose");
 const axios = require("axios").default;
 
-const db = mongoose.connect(process.env.MONGO_URI, {
+mongoose.connect(process.env.MONGO_URI, {
 	useNewUrlParser: true,
 	useUnifiedTopology: true,
+}).then(connected =>{
+    console.log("DB Connected.", connected);
+}).catch(error =>{
+    console.log(error);
 });
 
 const { Schema } = mongoose;
@@ -25,7 +29,6 @@ const fetchUrl = async (url, config = null) => {
 };
 
 module.exports = {
-	db,
 	mongoose,
 	Schema,
 	fetchUrl,
