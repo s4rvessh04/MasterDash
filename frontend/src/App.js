@@ -21,7 +21,7 @@ function App() {
 
   useEffect(() => {
     const hideMenu = () => {
-      if (window.innerWidth < 768) {
+      if (window.innerWidth < 1024) {
         setIsOpen(false);
       } else {
         setIsOpen(true);
