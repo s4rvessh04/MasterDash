@@ -37,7 +37,7 @@ function App() {
 
   return (
     <>
-      <div className='min-h-screen lg:flex font-titillium bg-gray-50'>
+      <div className='min-h-screen lg:flex font-titillium bg-gray-50 text-gray-900'>
         <Navbar toggle={toggle} isOpen={isOpen} />
         <Switch>
           <Route exact path='/'>
