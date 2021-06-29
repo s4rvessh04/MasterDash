@@ -10,6 +10,11 @@ const config = {
   username: process.env.USRNAME,
 };
 
+const headers = {
+  Authorization: `Bearer ${config.token}`,
+  'Content-Type': 'application/json',
+};
+
 const userApiLink = `https://api.github.com/users/${config.username}`;
 const repoApiLink = `https://api.github.com/users/${config.username}/repos`;
 const contributorsLink = (repoName) =>
@@ -152,9 +157,9 @@ router.get('/user', async (req, res) => {
 
 router.post('/user', async (req, res, next) => {
   try {
-    const data = await fetchUrl(userApiLink, config);
+    const data = await fetchUrl(userApiLink, headers);
     const fields = Object.keys(UserData.schema.paths);
-    let cleanedData = new Map();
+    const cleanedData = new Map();
 
     Object.keys(data).map((key) => {
       if (fields.includes(key)) {
@@ -172,7 +177,7 @@ router.post('/user', async (req, res, next) => {
 
 router.post('/repohouse', async (req, res, next) => {
   try {
-    const data = await fetchUrl(repoApiLink, config);
+    const data = await fetchUrl(repoApiLink, headers);
     const fields = Object.keys(RepositoryData.schema.paths);
 
     Object.values(data).forEach(async (item) => {
