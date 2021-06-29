@@ -16,7 +16,7 @@ function CovidCard() {
 
   return (
     <>
-      {data && (
+      {data ? (
         <SmallCard
           cardDetails={{
             svg: (
@@ -39,35 +39,49 @@ function CovidCard() {
           }}
           cardContent={
             <div className='flex justify-between'>
-              {Object.keys(data.total).map((key) =>
-                ['confirmed', 'deceased', 'recovered', 'vaccinated1'].includes(
-                  key
-                ) ? (
-                  <div className='wrapper'>
-                    <h5
-                      className='text-xs font-bold text-gray-700 mb-0.5'
-                      style={{ 'text-transform': 'capitalize' }}>
-                      {key === 'vaccinated1' ? 'Vaccinated' : key}
-                    </h5>
-                    <div className='text-xxs font-semibold text-gray-500 mb-0.5'>
-                      +
-                      {data['delta7'][key] !== undefined
-                        ? key === 'vaccinated1'
-                          ? data.delta7.vaccinated1 + data.delta7.vaccinated2
-                          : data['delta7'][key]
-                        : 0}
+              {Object.keys(data.total).map(
+                (key) =>
+                  [
+                    'confirmed',
+                    'deceased',
+                    'recovered',
+                    'vaccinated1',
+                  ].includes(key) && (
+                    <div className='wrapper'>
+                      <h5
+                        className='text-xs font-bold text-gray-700 mb-0.5'
+                        style={{ 'text-transform': 'capitalize' }}>
+                        {key === 'vaccinated1' ? 'Vaccinated' : key}
+                      </h5>
+                      <div className='text-xxs font-semibold text-gray-500 mb-0.5'>
+                        +
+                        {data['delta7'][key] !== undefined
+                          ? key === 'vaccinated1'
+                            ? data.delta7.vaccinated1 + data.delta7.vaccinated2
+                            : data['delta7'][key]
+                          : 0}
+                      </div>
+                      <div className='text-xs font-semibold text-gray-600'>
+                        {key === 'vaccinated1'
+                          ? data.total.vaccinated1 + data.total.vaccinated2
+                          : data['total'][key]}
+                      </div>
                     </div>
-                    <div className='text-xs font-semibold text-gray-600'>
-                      {key === 'vaccinated1'
-                        ? data.total.vaccinated1 + data.total.vaccinated2
-                        : data['total'][key]}
-                    </div>
-                  </div>
-                ) : (
-                  ''
-                )
+                  )
               )}
             </div>
+          }
+        />
+      ) : (
+        <SmallCard
+          cardDetails={{
+            svg: <div class='animate-pulse w-3/5 h-6 bg-gray-200'></div>,
+            name: '',
+            sub1: '',
+            sub2: '',
+          }}
+          cardContent={
+            <div class='animate-pulse w-full h-full bg-gray-200 text-gray-200'></div>
           }
         />
       )}

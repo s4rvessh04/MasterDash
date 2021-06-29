@@ -5,9 +5,9 @@ function SmallCard({ cardContent, cardDetails }) {
     <>
       <div className='flex items-baseline mb-2.5'>
         {cardDetails.svg}
-        <h5 className='text-xl font-bold text-gray-900 mr-2.5'>
+        <div className='text-xl font-bold text-gray-900 mr-2.5'>
           {cardDetails.name}
-        </h5>
+        </div>
         <div className='text-xs font-semibold text-gray-500'>
           {cardDetails.sub1}
           <span className='text-xxs ml-5px'>{cardDetails.sub2}</span>

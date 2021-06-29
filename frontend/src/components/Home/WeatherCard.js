@@ -16,7 +16,7 @@ function WeatherCard() {
 
   return (
     <>
-      {data && (
+      {data ? (
         <SmallCard
           cardDetails={{
             svg: (
@@ -91,6 +91,18 @@ function WeatherCard() {
                 </div>
               </div>
             </div>
+          }
+        />
+      ) : (
+        <SmallCard
+          cardDetails={{
+            svg: <div class='animate-pulse w-3/5 h-6 bg-gray-200'></div>,
+            name: '',
+            sub1: '',
+            sub2: '',
+          }}
+          cardContent={
+            <div class='animate-pulse w-full h-full bg-gray-200 text-gray-200'></div>
           }
         />
       )}
