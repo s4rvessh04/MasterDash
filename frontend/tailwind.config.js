@@ -28,6 +28,7 @@ module.exports = {
         home_cards_gap: '3.125rem',
         home_notification_card_height: '12.125rem',
         home_news_pane_height: '37.188rem',
+        home_news_pane_articlecard_height: '3.313rem',
         '5px': '0.313rem',
         '30px': '1.875rem',
         '88%': '88%',
@@ -57,6 +58,7 @@ module.exports = {
         'rose-500': '#F43F5E',
       },
       borderWidth: {
+        '5px': '5px',
         10: '10px',
       },
       borderRadius: {
