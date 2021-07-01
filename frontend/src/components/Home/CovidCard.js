@@ -35,7 +35,7 @@ function CovidCard() {
             ),
             name: 'COVID-Status',
             sub1: data.location.city,
-            sub2: data.location.country,
+            sub2: data.location.state,
           }}
           cardContent={
             <div className='flex justify-between'>

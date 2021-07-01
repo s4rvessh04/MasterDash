@@ -5,23 +5,54 @@ import SmallCard from './SmallCard';
 
 function ServerStatsCard() {
   const [isLiveProject, setisLiveProject] = useState('Offline');
-  const urlApi = '/';
+  const [isLivePortfolio, setisLivePortfolio] = useState('Offline');
+  const [isLiveWebsite1, setisLiveWebsite1] = useState('Offline');
+  const [isLiveWebsite2, setisLiveWebsite2] = useState('Offline');
+  const [countServer, setCountServer] = useState(0);
+
+  const urlProject = '/';
+  const urlPortfolio = '/';
+  const urlWebsite1 = '/no';
+  const urlWebsite2 = '/no';
 
   useEffect(() => {
-    fetchProjectServerStatus();
-  }, [urlApi]);
+    fetchServerStatus();
+  }, [urlProject, urlPortfolio, urlWebsite1, urlWebsite2]);
 
-  async function fetchProjectServerStatus() {
-    const response = await fetch(urlApi);
-    setisLiveProject(response.status <= 302 ? 'Online' : 'Offline');
+  async function fetchServerStatus() {
+    let count = 0;
+
+    const handleCount = () => {
+      count += 1;
+      return 'Online';
+    };
+
+    const responseProject = await fetch(urlProject);
+    const responsePortfolio = await fetch(urlPortfolio);
+    const responseWebsite1 = await fetch(urlWebsite1);
+    const responseWebsite2 = await fetch(urlWebsite2);
+
+    setisLiveProject(responseProject.status <= 302 ? handleCount() : 'Offline');
+    setisLivePortfolio(
+      responsePortfolio.status <= 302 ? handleCount() : 'Offline'
+    );
+    setisLiveWebsite1(
+      responseWebsite1.status <= 302 ? handleCount() : 'Offline'
+    );
+    setisLiveWebsite2(
+      responseWebsite2.status <= 302 ? handleCount() : 'Offline'
+    );
+
+    setCountServer(count);
   }
-
   const icon = (status) => {
     switch (status) {
       case 'Online':
         return <hi.HiStatusOnline className='m-auto text-gray-600 h-5 w-5' />;
       case 'Offline':
         return <hi.HiStatusOffline className='m-auto text-gray-600 h-5 w-5' />;
+      default:
+        return null;
     }
   };
 
@@ -46,8 +77,8 @@ function ServerStatsCard() {
           </svg>
         ),
         name: 'Server Stats',
-        sub1: 'N Down',
-        sub2: 'All Up',
+        sub1: `${4 - countServer} Down`,
+        sub2: countServer === 4 ? 'All Up' : '',
       }}
       cardContent={
         <div className='flex justify-between'>
@@ -61,7 +92,7 @@ function ServerStatsCard() {
               />
             </h5>
             <div className='text-xs font-semibold text-gray-500 mb-0.5 w-4/5'>
-              {icon('Offline')}
+              {icon(isLivePortfolio)}
             </div>
           </div>
           <div className='text-xs font-bold text-gray-700'>
@@ -87,7 +118,7 @@ function ServerStatsCard() {
               />
             </h5>
             <div className='text-xs font-semibold text-gray-500 mb-0.5 w-4/5'>
-              {icon('Offline')}
+              {icon(isLiveWebsite1)}
             </div>
           </div>
           <div className='text-xs font-bold text-gray-700'>
@@ -100,7 +131,7 @@ function ServerStatsCard() {
               />
             </h5>
             <div className='text-xs font-semibold text-gray-500 mb-0.5 w-4/5'>
-              {icon('Offline')}
+              {icon(isLiveWebsite2)}
             </div>
           </div>
         </div>

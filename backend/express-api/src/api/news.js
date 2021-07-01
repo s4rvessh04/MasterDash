@@ -23,7 +23,7 @@ const yesterday = raw_yesterday.toISOString().slice(0, 10);
 const techNews = `https://newsapi.org/v2/everything?q=tech&language=en&from=${yesterday}&to=${today}&sortBy=popularity&pageSize=20&apiKey=${config.token}`;
 const cryptoNews = `https://newsapi.org/v2/everything?q=crypto&language=en&from=${yesterday}&to=${today}&sortBy=popularity&pageSize=20&apiKey=${config.token}`;
 const scienceNews = `https://newsapi.org/v2/top-headlines?category=science&language=en&from=${yesterday}&to=${today}&sortBy=relevancy&pageSize=20&apiKey=${config.token}`;
-const countryNews = `https://newsapi.org/v2/top-headlines?country=in&language=en&pageSize=20&apiKey=${config.token}`;
+const countryNews = `https://newsapi.org/v2/top-headlines?country=in&category=general&pageSize=20&apiKey=${config.token}`;
 const worldNews = `https://newsapi.org/v2//top-headlines?sources=google-news&language=en&pageSize=20&apiKey=${config.token}`;
 
 const newsType = (type) => {

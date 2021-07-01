@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import Loader from '../Loader';
 import { Link } from 'react-router-dom';
 import * as hi from 'react-icons/hi';
 
@@ -43,9 +44,9 @@ function NewsPane() {
                 new Date().toTimeString().slice(0, 5)}
             </h6>
           </div>
-          <div className='border border-border md:rounded-20 rounded-2xl p-2.5 text-sm h-home_news_pane_height shadow-soft w-home_partition2_width overflow-y-scroll no-scrollbar'>
+          <div className='border border-border md:rounded-20 rounded-2xl p-2.5 md:text-sm text-xs h-home_news_pane_height shadow-soft md:w-home_partition2_width w-full overflow-y-scroll no-scrollbar'>
             <div className='sticky top-0'>
-              <div className='h-10 rounded-full p-5px font-semibold grid grid-cols-5 gap-2.5 bg-gray-100 text-gray-700'>
+              <div className='h-10 rounded-full p-5px font-semibold grid grid-cols-5 md:gap-2.5 gap-1 bg-gray-100 text-gray-700'>
                 {Object.values(categories).map((item) => {
                   return (
                     <div
@@ -61,16 +62,16 @@ function NewsPane() {
                 })}
               </div>
             </div>
-            <h3 className='text-lg mt-5 mb-2.5 ml-5'>TOP STORIES</h3>
+            <h3 className='text-lg mt-5 mb-2.5 md:ml-5 ml-2.5'>TOP STORIES</h3>
             {loading === false ? (
               Object.values(data).map((item) => {
                 return (
-                  <div className='px-5 flex justify-between mb-5 w-full'>
+                  <div className='md:px-5 px-2.5 md:flex justify-between mb-5 w-full'>
                     <div className='flex flex-1 min-w-0'>
                       <div
                         className={`bg-${
                           colors[Math.floor(Math.random() * colors.length)]
-                        }-500 h-auto w-5px rounded-full`}></div>
+                        }-500 h-auto w-5px rounded-full flex-shrink-0`}></div>
                       <div className='px-2.5 py-5px h-auto'>
                         <h6 className='text-sm font-semibold'>{item.title}</h6>
                         <div className='flex mt-1'>
@@ -100,26 +101,7 @@ function NewsPane() {
               })
             ) : (
               <div className='flex flex-col w-full text-center mt-5'>
-                <svg
-                  className='animate-spin h-8 w-8 m-auto'
-                  xmlns='http://www.w3.org/2000/svg'
-                  fill='none'
-                  viewBox='0 0 24 24'>
-                  <circle
-                    className='opacity-25'
-                    cx='12'
-                    cy='12'
-                    r='10'
-                    stroke='currentColor'
-                    strokeWidth='2'></circle>
-                  <path
-                    className='opacity-75'
-                    fill='currentColor'
-                    d='M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z'></path>
-                </svg>
-                <h4 className='font-semibold text-gray-600 mt-2'>
-                  Getting Data...
-                </h4>
+                <Loader />
               </div>
             )}
           </div>
