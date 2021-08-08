@@ -15,14 +15,23 @@ mongoose
 
 const { Schema } = mongoose;
 
-const fetchUrl = async (url, headers = null) => {
+const fetchUrl = async (url, headers = null, raw = false) => {
   try {
-    const { data } = await axios({
-      method: 'get',
-      url: url,
-      headers: headers,
-    });
-    return data;
+    if (raw) {
+      const data = await axios({
+        method: 'get',
+        url: url,
+        headers: headers,
+      });
+      return data;
+    } else {
+      const { data } = await axios({
+        method: 'get',
+        url: url,
+        headers: headers,
+      });
+      return data;
+    }
   } catch (error) {
     return error;
   }
