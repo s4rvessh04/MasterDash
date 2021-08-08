@@ -10,14 +10,11 @@ function ServerStatsCard() {
   const [isLiveWebsite2, setisLiveWebsite2] = useState('Offline');
   const [countServer, setCountServer] = useState(0);
 
-  const urlProject = '/';
-  const urlPortfolio = '/';
-  const urlWebsite1 = '/no';
-  const urlWebsite2 = '/no';
+  const urlServers = '/servers';
 
   useEffect(() => {
     fetchServerStatus();
-  }, [urlProject, urlPortfolio, urlWebsite1, urlWebsite2]);
+  }, [urlServers]);
 
   async function fetchServerStatus() {
     let count = 0;
@@ -27,22 +24,21 @@ function ServerStatsCard() {
       return 'Online';
     };
 
-    const responseProject = await fetch(urlProject);
-    const responsePortfolio = await fetch(urlPortfolio);
-    const responseWebsite1 = await fetch(urlWebsite1);
-    const responseWebsite2 = await fetch(urlWebsite2);
+    const responseServers = await fetch(urlServers);
+    const serverStatsData = await responseServers.json();
 
-    setisLiveProject(responseProject.status <= 302 ? handleCount() : 'Offline');
+    setisLiveProject(
+      serverStatsData.Project <= 302 ? handleCount() : 'Offline'
+    );
     setisLivePortfolio(
-      responsePortfolio.status <= 302 ? handleCount() : 'Offline'
+      serverStatsData.Portfolio <= 302 ? handleCount() : 'Offline'
     );
     setisLiveWebsite1(
-      responseWebsite1.status <= 302 ? handleCount() : 'Offline'
+      serverStatsData.Website1 <= 302 ? handleCount() : 'Offline'
     );
     setisLiveWebsite2(
-      responseWebsite2.status <= 302 ? handleCount() : 'Offline'
+      serverStatsData.Website2 <= 302 ? handleCount() : 'Offline'
     );
-
     setCountServer(count);
   }
   const icon = (status) => {

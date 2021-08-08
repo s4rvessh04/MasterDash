@@ -25,7 +25,7 @@ function NotificationCard() {
         </h5>
         <div className='text-xs font-semibold text-gray-500'>Detail View</div>
       </div>
-      <div className='p-2.5 mb-30px border border-border h-home_notification_card_height md:w-home_partition1_width rounded-xl bg-white shadow-soft'>
+      <div className='p-2.5 mb-30px border border-border h-home_notification_card_height xl:w-home_partition1_width rounded-xl bg-white shadow-soft'>
         <div className='h-30px p-1 rounded-full grid grid-cols-4 gap-2.5 bg-gray-100'>
           <div className='rounded-full bg-white flex'>
             <svg

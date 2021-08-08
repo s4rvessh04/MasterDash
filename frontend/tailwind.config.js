@@ -13,6 +13,9 @@ module.exports = {
       margin: {
         body: '1.875rem',
       },
+      padding: {
+        body: '1.875rem',
+      },
       spacing: {
         github_partition1_width: '31.188rem',
         github_partition2_width: '42.938rem',

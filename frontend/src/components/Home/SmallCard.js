@@ -13,7 +13,7 @@ function SmallCard({ cardContent, cardDetails }) {
           <span className='text-xxs ml-5px'>{cardDetails.sub2}</span>
         </div>
       </div>
-      <div className='px-5 py-3.5 mb-30px border border-border h-20 md:w-home_partition1_width rounded-xl bg-white shadow-soft'>
+      <div className='px-5 py-3.5 mb-30px border border-border h-20 xl:w-home_partition1_width rounded-xl bg-white shadow-soft'>
         {cardContent}
       </div>
     </>

@@ -44,7 +44,7 @@ function NewsPane() {
                 new Date().toTimeString().slice(0, 5)}
             </h6>
           </div>
-          <div className='border border-border md:rounded-20 rounded-2xl p-2.5 md:text-sm text-xs h-home_news_pane_height shadow-soft md:w-home_partition2_width w-full overflow-y-scroll no-scrollbar'>
+          <div className='border border-border md:rounded-20 rounded-2xl p-2.5 md:text-sm text-xs h-home_news_pane_height shadow-soft xl:w-home_partition2_width w-full overflow-y-scroll no-scrollbar'>
             <div className='sticky top-0'>
               <div className='h-10 rounded-full p-5px font-semibold grid grid-cols-5 md:gap-2.5 gap-1 bg-gray-100 text-gray-700'>
                 {Object.values(categories).map((item) => {

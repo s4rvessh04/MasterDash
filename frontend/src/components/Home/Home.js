@@ -9,9 +9,9 @@ import NewsPane from './NewsPane';
 function Home() {
   return (
     <>
-      <div className='md:container md:mx-body mx-2 mt-body flex flex-1 flex-col'>
-        <div className='lg:flex'>
-          <div className='md:mr-home_cards_gap'>
+      <div className='lg:container xl:mx-body md:mx-0 xl:pt-0 lg:py-body xl:p-0 md:px-4 mx-2 py-3 xl:mt-body flex flex-1 flex-col xl:h-auto lg:h-screen overflow-y-auto'>
+        <div className='xl:flex'>
+          <div className='xl:mr-home_cards_gap'>
             <CovidCard />
             <WeatherCard />
             <ServerStatsCard />

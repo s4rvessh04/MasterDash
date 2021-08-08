@@ -19,7 +19,7 @@ function Navbar({ isOpen, toggle }) {
       <div className='lg:flex lg:bg-gray-100 xl:w-60 w-38 lg:h-screen h-14'>
         <div className='lg:sticky flex flex-col justify-items-center fixed top-0 w-full backdrop-filter backdrop-blur-md text-gray-700'>
           <div>
-            <div className='md:pl-8 p-4 flex justify-between'>
+            <div className='xl:pl-8 p-4 flex justify-between'>
               <h4 className='text-base font-semibold tracking-widest text-gray-900 uppercase rounded-lg dark-mode:text-white focus:outline-none focus:shadow-outline'>
                 Master Dash
               </h4>
