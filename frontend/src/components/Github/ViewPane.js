@@ -40,7 +40,7 @@ function ViewPane({ repoData }) {
       <div className='border border-border md:px-30px md:py-5 p-3 md:h-github_view_pane_card_height h-github_view_pane_card_height_mobile md:rounded-20 rounded-2xl shadow-soft bg-white'>
         <div className='md:text-lg text-base mb-5 font-semibold text-gray-700 flex justify-between'>
           <Link
-            to={{ pathname: repoData.url }}
+            to={{ pathname: repoData.html_url }}
             target='_blank'
             className='flex'>
             <div className='my-auto'>{repoData.name}</div>
