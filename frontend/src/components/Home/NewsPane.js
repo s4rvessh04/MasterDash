@@ -38,10 +38,7 @@ function NewsPane() {
           <div className='flex h-height_info_card_border mb-5 text-sm font-semibold text-gray-700'>
             <div className='w-5px bg-indigo-500 rounded-full mr-2.5'></div>
             <h6 className='m-auto ml-0'>
-              Last updated
-              {new Date().toISOString().slice(0, 10) +
-                ' ' +
-                new Date().toTimeString().slice(0, 5)}
+              {`Last updated ${new Date().toTimeString().slice(0, 5)}`}
             </h6>
           </div>
           <div className='border border-border md:rounded-20 rounded-2xl p-2.5 md:text-sm text-xs h-home_news_pane_height shadow-soft xl:w-home_partition2_width w-full overflow-y-scroll no-scrollbar'>
