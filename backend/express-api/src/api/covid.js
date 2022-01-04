@@ -45,7 +45,10 @@ router.post('/', async (req, res, next) => {
   try {
     const { state, city } = req.body;
     const data = await fetchUrl(apiUrl);
-    if (data[state] === undefined || data[city] === undefined) {
+    if (
+      data[state] === undefined ||
+      data[state].districts[city] === undefined
+    ) {
       res.status(404);
       return res.json(req.body);
     }
