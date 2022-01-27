@@ -6,7 +6,7 @@ const router = express.Router();
 router.get('/', async (req, res, next) => {
   try {
     const portFolio = await fetchUrl(
-      'https://targusrock-portfolio-website.netlify.app/',
+      'https://sarveshrane2000-portfolio.netlify.app/',
       null,
       true
     );
